@@ -1,60 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <title>Shrinker</title>
-    <script src="/copy.js"></script>
-    <script>history.pushState(null, "", location.href.split("?")[0]);</script>
-    <style>
-        #wrapper{
-            text-align: center;
-        }
-        h1{
-            font-family: 'Roboto';
-            font-size: 5em;
-        }
-        #submit{
-            margin: 5px;
-        }
-        #mainUrl{
-            padding: 10px;
-        
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<title>Shrinker</title>
+	<script src="/copy.js"></script>
+	<script>history.pushState(null, "", location.href.split("?")[0]);</script>
+	<style>
+		h1 {
+			font-family: 'Roboto';
+			font-size: 5em;
+		}
+	</style>
 </head>
+
 <body>
-    <div id="wrapper">
-    <h1>Shrink :3</h1>
-    <form method="POST" action="/generate">
-        <div class="mb-3">
-          <label for="mainUrl" class="form-label">URL to shrink</label>
-          <input type="url" class="form-control" id="mainUrl" name="mainUrl" required>
-          <!-- <div id="instruction" class="form-text">Write the full email please.</div> -->
-        </div>
-        <div class="mb-3">
-          <label for="custom" class="form-label">Custom (Optional)</label>
-          <input type="text" class="form-control" id="custom" name="custom">
-        </div>
-        <button type="input" class="btn btn-primary" id="submit">Generate</button>
-      </form>
-      <div style="margin-top: 15px;">
-      <% if(status==0) { %>
-        <%= msg %>
-      <% } else if(status==1) { %>
-        Shrinked Link : <a id="link" href=<%= url %> target="_blank">/<%= url %> <a> 
-            <div style="margin-top: 15px;"></div>    
-        <br> <input type="button" class="btn btn-primary" onclick="" id="Copy" value="Copy"></button>
-         
-      <% } %>
-      </div>
-    </div>
+	<div class="container my-5">
+		<h1>Shrink :3</h1>
+		<div class="border p-4 mt-5">
+			<form method="POST" action="/generate">
+				<div class="mb-3">
+					<label for="mainUrl" class="form-label">URL to shrink</label>
+					<input type="url" class="form-control" id="mainUrl" name="mainUrl" required>
+				</div>
+				<div class="mb-3">
+					<label for="custom" class="form-label">Custom</label>
+					<input type="text" class="form-control" id="custom" name="custom">
 
+					<div class="form-text">custom url is optional</div>
+				</div>
+				<button type="input" class="btn btn-outline-secondary" id="submit">Shrink Temporarily</button>
+				<div class="alert alert-warning mt-3" role="alert">
+					This URL will expire after some time 
+					<hr/>
+					<b>Login</b>  to get full benefits
+				</div>
+			</form>
+			<a href="/register" class="btn btn-primary">Register</a>
+			<a href="/login" class="btn">Login</a>
+		</div>
+		<div style="margin-top: 15px;">
+			<% if(status==0) { %>
+				<%= msg %>
+			<% } else if(status==1) { %>
+				Shrinked Link :
+				<a id="link" href=<%=url %> target="_blank">/<%= url %> <a>
+				<div style="margin-top: 15px;"></div>
+				<br> 
+				<input type="button" class="btn btn-primary" onclick="" id="Copy"
+					value="Copy"/>
 
+			<% } %> 
+		</div>
+	</div>
 </body>
+
 </html>

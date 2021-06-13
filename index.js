@@ -30,6 +30,12 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => homeHandler(req, res))
 
+app.get('/login', (req, res) => {res.render('login')})
+
+app.get('/register', (req, res) => {res.render('register')})
+
+app.get('/dash', (req, res) => {res.render('dash')})
+
 app.post('/generate', (req, res) => generateHandler(req, res, shrinkobj))
 
 app.get('/api/create', (req, res) => apiCreateHandler(req, res, shrinkobj))
