@@ -23,6 +23,7 @@ template :
 ```
 MONGO_URI=mongodb://localhost:27017/url_shrinker
 PORT=5000
+COOKIE_SECRET=SOME_COOKIE_SECRET_MUST_BE_KEPT_SECRET_AS_IT_IS_A_SECRET
 ```
 execute "npm run local"
 

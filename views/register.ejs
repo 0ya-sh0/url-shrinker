@@ -15,10 +15,11 @@
 </head>
 
 <body>
+    <a class="btn" href="/"><h1>Shrink</h1></a>
     <div class="container my-5">
         <h1 class="text-center">Register</h1>
         <div class="mt-5 border p-4 mx-auto" style="width: 400px;">
-            <form action="" method="post" class="mb-3">
+            <form action="/register" method="post" class="mb-3">
                 <div class="form-group mb-3">
                     <label for="username" class="form-label">Username:</label>
                     <input type="text" class="form-control" placeholder="Enter username" id="username" name="username"
@@ -26,15 +27,17 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="pwd" class="form-label">Password:</label>
-                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pass"
+                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password"
                         required>
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
             <hr />
+            <% if (failed) { %>
             <div class="alert alert-danger mb-3">
                 <strong>Failure!</strong> Username already in use
             </div>
+            <% } %>
             <div>
                 already an user?
                 <br />

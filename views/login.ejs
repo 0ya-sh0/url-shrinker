@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <a class="btn" href="/"><h1>Shrink</h1></a>
 	<div class="container my-5">
         <h1 class="text-center">Login</h1>
         <div class="mt-5 border p-4 mx-auto" style="width: 400px;">
@@ -27,15 +28,17 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="pwd" class="form-label">Password:</label>
-                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pass"
+                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password"
                         required>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <hr />
+            <% if (failed) { %>
             <div class="alert alert-danger mb-3">
                 <strong>Failure!</strong> Invalid Username or Password
             </div>
+            <% } %>
             <div>
                 not a user?
                 <br />

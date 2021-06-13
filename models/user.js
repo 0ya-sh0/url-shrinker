@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-    username: { type: String, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true },
-    password: String,
+    username: { type: String, required: [true, "can't be blank"], index: true },
+    password: { type: String, required: [true, "can't be blank"]},
 }, { timestamps: true })
 
-const userobj = mongoose.model('userobj', userSchema)
-module.exports = userobj
+const userModel = mongoose.model('user', userSchema)
+module.exports = userModel
